@@ -3,7 +3,7 @@ more people will try to perserve the oldies
 
 # 🎮 EmulationStation Config Editor
 
-A lightweight tool to simplify the creation and management of EmulationStation system configuration files.
+A lightweight tool to simplify the creation and management of EmulationStation system configuration files (2015 version).
 
 This project focuses on improving the workflow of configuring emulators, cores, and launch commands by providing a structured and error-resistant approach instead of manually editing XML files.
 
