@@ -56,3 +56,64 @@ Instead of writing this manually:
     <platform>genesis</platform>
     <theme>genesis</theme>
   </system>
+```
+
+You configure:
+
+- Emulator: RetroArch
+Core: genesis_plus_gx
+Fullscreen: true
+And the tool generates the correct command automatically.
+---
+## 🏗 Architecture
+
+The project uses a modular approach:
+
+EmulatorHandlers → define behavior per emulator
+LaunchContext → unified input for command generation
+SystemConfig → represents each platform
+XML Parser → reads/writes EmulationStation config
+
+## 🔧 Supported Emulators (WIP)
+
+- RetroArch (Libretro cores)
+- Dolphin (GameCube / Wii)
+- More coming soon...
+  
+---
+## ⚠️ Notes
+
+- This tool does NOT include ROMs, BIOS files, or emulator binaries.
+- Designed to work alongside existing emulator installations.
+- Focused on automation and configuration, not emulation.
+
+---
+## 🛠 Requirements
+
+- .NET Framework 4.7
+- Windows OS
+- EmulationStation setup
+
+---
+## 📌 Roadmap
+
+ - UI for editing systems
+ - Auto-detect cores from .info files
+ - Emulator auto-detection
+ - Profile system
+ - Command testing feature
+
+---
+## 🤝 Contributing
+
+This is currently a personal project, but suggestions and ideas are welcome.
+
+---
+## 📄 License
+
+TBD
+
+---
+## ✨ Author
+
+Luis Zamora
