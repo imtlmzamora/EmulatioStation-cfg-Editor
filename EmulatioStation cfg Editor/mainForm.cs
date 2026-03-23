@@ -13,11 +13,15 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace EmulatioStation_cfg_Editor
 {
     public partial class mainForm : Form
     {
+        List<EsSystem> systems = new List<EsSystem>();
+        EsSystem curSystem = new EsSystem();//define the system we are editing
+
         Dictionary<string, launchConfig> DictLauncherConfig = new Dictionary<string, launchConfig>()
         {
             { "Dolphin",new launchConfig(){ fullScreen = true,fullScreenCmd = "--fullscreen",useBash = false,bash = "--batch --exec=\"%ROM_RAW%\"",libreteto = ""} },
@@ -118,6 +122,7 @@ namespace EmulatioStation_cfg_Editor
                 addLauncherFile();
             }
 
+            comboBox1.DataSource = platformsID.Keys.ToList();
             updateLauncherListView();
             loadSettings();
 
@@ -224,7 +229,7 @@ namespace EmulatioStation_cfg_Editor
         public void loadSettings()
         {
             listBox2.Items.Clear();
-            var systems = EmulationStationCfgReader.LoadSystems(Properties.Settings.Default.strSettingFilePath);
+            systems = EmulationStationCfgReader.LoadSystems(Properties.Settings.Default.strSettingFilePath);
 
             foreach (var system in systems)
             {
@@ -276,10 +281,59 @@ namespace EmulatioStation_cfg_Editor
         {
             if (listBox2.SelectedIndex < 0)
                 return;
+            string selectedName = listBox2.SelectedItem.ToString();
 
+            curSystem = systems.FirstOrDefault(x => x.Name == selectedName);
+
+            if (curSystem == null)
+                return;
+            if (!comboBox1.Items.Contains(curSystem.Name))
+                return;
+
+            var idx = comboBox1.FindStringExact(curSystem.Name);
+
+            comboBox1.SelectedIndex = idx;
+            Debug.WriteLine("");
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(comboBox1.SelectedItem.ToString()))
+            button1.Enabled = !string.IsNullOrEmpty(platformsID[comboBox1.SelectedItem.ToString()]);
+
+            curSystem.FullName = comboBox1.SelectedItem.ToString();
+            curSystem.Platform = comboBox1.SelectedItem.ToString();
+            curSystem.Theme = comboBox1.SelectedItem.ToString();
+
+            textBox1.Text = curSystem.FullName;
+            textBox2.Text = curSystem.Path;
+            textBox3.Text = curSystem.Extension;
+            textBox4.Text = curSystem.Platform;
+            textBox5.Text = curSystem.Theme;
+            //txtCommand.Text = selectedSystem.Command;
+
+            richTextBox1.Text = BuildSystemXmlPreview(curSystem);
+
+        }
+
+
+        public static string BuildSystemXmlPreview(EsSystem system)
+        {
+            var xml = new XElement("system",
+                new XElement("name", system.Name),
+                new XElement("fullname", system.FullName),
+                new XElement("path", system.Path),
+                new XElement("extension", system.Extension),
+                new XElement("command", system.Command),
+                new XElement("platform", system.Platform),
+                new XElement("theme", system.Theme)
+            );
+
+            return xml.ToString();
+        }
     }
+
 
     [Serializable]
     public class typeLauncher

@@ -58,9 +58,11 @@ namespace EmulatioStation_cfg_Editor
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.chkbox_bash = new System.Windows.Forms.CheckBox();
             this.chk_fullscrn = new System.Windows.Forms.CheckBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -116,7 +118,7 @@ namespace EmulatioStation_cfg_Editor
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(709, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -132,14 +134,14 @@ namespace EmulatioStation_cfg_Editor
             // loadEsToolStripMenuItem
             // 
             this.loadEsToolStripMenuItem.Name = "loadEsToolStripMenuItem";
-            this.loadEsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.loadEsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadEsToolStripMenuItem.Text = "set es_systems.cfg";
             this.loadEsToolStripMenuItem.Click += new System.EventHandler(this.loadEsToolStripMenuItem_Click);
             // 
             // setRomPathToolStripMenuItem
             // 
             this.setRomPathToolStripMenuItem.Name = "setRomPathToolStripMenuItem";
-            this.setRomPathToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.setRomPathToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.setRomPathToolStripMenuItem.Text = "set Rom Path";
             // 
             // listBox2
@@ -208,7 +210,6 @@ namespace EmulatioStation_cfg_Editor
             // 
             // textBox3
             // 
-            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(114, 185);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(267, 20);
@@ -225,9 +226,9 @@ namespace EmulatioStation_cfg_Editor
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(202, 39);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(179, 20);
             this.textBox1.TabIndex = 12;
             // 
@@ -238,11 +239,13 @@ namespace EmulatioStation_cfg_Editor
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(86, 21);
             this.comboBox1.TabIndex = 11;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(110, 84);
             this.textBox2.Name = "textBox2";
+            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox2.Size = new System.Drawing.Size(239, 20);
             this.textBox2.TabIndex = 10;
             // 
@@ -303,9 +306,9 @@ namespace EmulatioStation_cfg_Editor
             // 
             // textBox4
             // 
-            this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(114, 234);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(179, 20);
             this.textBox4.TabIndex = 20;
             // 
@@ -320,9 +323,9 @@ namespace EmulatioStation_cfg_Editor
             // 
             // textBox5
             // 
-            this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(114, 289);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(179, 20);
             this.textBox5.TabIndex = 22;
             // 
@@ -346,15 +349,6 @@ namespace EmulatioStation_cfg_Editor
             this.chk_fullscrn.Text = "Full Screen";
             this.chk_fullscrn.UseVisualStyleBackColor = true;
             // 
-            // textBox6
-            // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(428, 220);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(257, 290);
-            this.textBox6.TabIndex = 21;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -374,14 +368,47 @@ namespace EmulatioStation_cfg_Editor
             this.button2.Text = "update/add settings";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(431, 217);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(391, 293);
+            this.richTextBox1.TabIndex = 28;
+            this.richTextBox1.Text = "";
+            // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.Location = new System.Drawing.Point(599, 516);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(98, 23);
+            this.button3.TabIndex = 29;
+            this.button3.Text = "Save";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Enabled = false;
+            this.button4.Location = new System.Drawing.Point(428, 545);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(98, 23);
+            this.button4.TabIndex = 30;
+            this.button4.Text = "Delete";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 611);
+            this.ClientSize = new System.Drawing.Size(834, 611);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -429,9 +456,11 @@ namespace EmulatioStation_cfg_Editor
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 
