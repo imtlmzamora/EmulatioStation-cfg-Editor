@@ -1,8 +1,7 @@
 <img width="400" height="400" alt="EsSettEditor_Ico" src="https://github.com/user-attachments/assets/e37dc5c5-034a-45dd-a74e-208e7e18b391" />
 
 
-I originnally created this project for me but felt that as companies become gready
-more people will try to perserve the oldies
+I originally created this project for myself, but I felt that as companies become cheaper more people will try to keep the classics.
 
 # 🎮 EmulationStation Config Editor
 
