@@ -471,16 +471,18 @@ namespace EmulatioStation_cfg_Editor
 
             //set the new launcher            
             newCommand = $"{launcherPath} ";
-            string fullScreenParam = chk_fullscrn.Checked ? "-f " : " ";
+            string fullScreenParam = "";
             if (string.Equals(cmbx_launcher.SelectedItem?.ToString(), "retroarch"))
             {
                 //build a command for retroarch here
+                fullScreenParam = chk_fullscrn.Checked ? "-f " : " ";
                 newCommand += $"{fullScreenParam}-L \"{corePath}\" ";
             }
             else
             {
                 //build command for no retroarch launcher
-                string extraParam = chkbox_bash.Checked ? " --batch " : " ";
+                //fullScreenParam = chk_fullscrn.Checked ? "--fullscreen " : " "; //dolphin not longer support this command
+                string extraParam = chkbox_bash.Checked ? "--batch " : " ";
                 newCommand += $"{extraParam}{fullScreenParam} --exec=";
             }
             newCommand += "\"%ROM_RAW%\"";
@@ -828,6 +830,25 @@ namespace EmulatioStation_cfg_Editor
             button4.Enabled = false;
 
             rTxtBx_SystemPreview.Text = "";
+        }
+
+        private void btn_GamesPath_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new FolderBrowserDialog())
+            {
+                dialog.Description = "Select a folder";
+                dialog.ShowNewFolderButton = true;
+
+                if (Directory.Exists(txtbx_GamesPath.Text))
+                dialog.SelectedPath = txtbx_GamesPath.Text;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string folderPath = dialog.SelectedPath;
+
+                    txtbx_GamesPath.Text = folderPath;
+                }
+            }
         }
     }
 

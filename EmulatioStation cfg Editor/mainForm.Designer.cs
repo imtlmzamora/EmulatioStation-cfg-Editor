@@ -361,6 +361,7 @@ namespace EmulatioStation_cfg_Editor
             this.btn_GamesPath.TabIndex = 8;
             this.btn_GamesPath.Text = "...";
             this.btn_GamesPath.UseVisualStyleBackColor = true;
+            this.btn_GamesPath.Click += new System.EventHandler(this.btn_GamesPath_Click);
             // 
             // lblSystemName
             // 

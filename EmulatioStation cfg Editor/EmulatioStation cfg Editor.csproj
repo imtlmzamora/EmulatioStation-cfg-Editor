@@ -7,7 +7,7 @@
     <ProjectGuid>{22B350A6-15D5-4AA8-ABF2-1AC13F065BD4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>EmulatioStation_cfg_Editor</RootNamespace>
-    <AssemblyName>EmulatioStation cfg Editor</AssemblyName>
+    <AssemblyName>EmulationStation cfg Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
