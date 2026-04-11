@@ -52,9 +52,9 @@ Instead of writing this manually:
 <system>
     <name>genesis</name>
     <fullname>Sega Genesis</fullname>
-    <path>G:\.emulationstation\roms\sega32x</path>
+    <path>...\roms\sega32x</path>
     <extension>.bin</extension>
-    <command>G:\.emulationstation\systems\RetroArch-Win64\retroarch.exe -L "G:\.emulationstation\systems\RetroArch-Win64\cores\genesis_plus_gx_libretro.dll" "%ROM_RAW%"</command>
+    <command>...\RetroArch-Win64\retroarch.exe -L "...\RetroArch-Win64\cores\genesis_plus_gx_libretro.dll" "%ROM_RAW%"</command>
     <platform>genesis</platform>
     <theme>genesis</theme>
   </system>
